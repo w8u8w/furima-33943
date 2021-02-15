@@ -22,9 +22,6 @@
 
 | Column                 | Type    | Options     |
 | ---------------------- | ------- | ----------- |
-| card_number            | integer | null: false |
-| exp_date               | integer | null: false |
-| card_verification_code | integer | null: false |
 | post_code              | integer | null: false |
 | block_number           | string  | null: false |
 | building_name          | string  | null: false |
