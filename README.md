@@ -22,7 +22,7 @@
 
 | Column                 | Type    | Options     |
 | ---------------------- | ------- | ----------- |
-| post_code              | integer | null: false |
+| post_code              | string | null: false |
 | block_number           | string  | null: false |
 | building_name          | string  | null: false |
 | phone_number           | integer | null: false |
