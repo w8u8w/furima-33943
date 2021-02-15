@@ -56,7 +56,7 @@
 | item_category_id        | integer    | null: false       |
 | item_condition_id       | integer    | null: false       |
 | who_expense_id          | integer    | null: false       |
-| ship_from_prefecture_id | integer    | null: false       |
+| prefecture_id           | integer    | null: false       |
 | days_to_shipment_id     | integer    | null: false       |
 | sales_price             | integer    | null: false       |
 | user                    | references | foreign_key: true |
