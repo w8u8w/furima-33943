@@ -33,12 +33,15 @@
 
 ## shipping_addresses テーブル
 
-| Column                 | Type   | Options     |
-| ---------------------- | ------ | ----------- |
-| post_code              | string | null: false |
-| block_number           | string | null: false |
-| building_name          | string |             |
-| phone_number           | string | null: false |
+| Column          | Type       | Options           |
+| --------------- | ---------- | ----------------- |
+| post_code       | string     | null: false       |
+| prefecture      | string     | null: false       |
+| municipality    | string     | null: false       |
+| block_number    | string     | null: false       |
+| building_name   | string     |                   |
+| phone_number    | string     | null: false       |
+| purchase_record | references | foreign_key: true |
 
 ### Association
 
