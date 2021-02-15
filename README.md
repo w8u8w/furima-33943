@@ -20,10 +20,10 @@
 
 ## purchases_records テーブル
 
-| Column | Type       | Options           |
-| ------ | ---------- | ----------------- |
-| user   | references | foreign_key: true |
-| item   | references | foreign_key: true |
+| Column    | Type       | Options           |
+| --------- | ---------- | ----------------- |
+| user_id   | references | foreign_key: true |
+| item_id   | references | foreign_key: true |
 
 ### Association
 
@@ -33,15 +33,15 @@
 
 ## shipping_addresses テーブル
 
-| Column          | Type       | Options           |
-| --------------- | ---------- | ----------------- |
-| post_code       | string     | null: false       |
-| prefecture      | string     | null: false       |
-| municipality    | string     | null: false       |
-| block_number    | string     | null: false       |
-| building_name   | string     |                   |
-| phone_number    | string     | null: false       |
-| purchase_record | references | foreign_key: true |
+| Column             | Type       | Options           |
+| ------------------ | ---------- | ----------------- |
+| post_code          | string     | null: false       |
+| prefecture         | string     | null: false       |
+| municipality       | string     | null: false       |
+| block_number       | string     | null: false       |
+| building_name      | string     |                   |
+| phone_number       | string     | null: false       |
+| purchase_record_id | references | foreign_key: true |
 
 ### Association
 
@@ -49,17 +49,17 @@
 
 ## items テーブル
 
-| Column               | Type       | Options           |
-| -------------------- | ---------- | ----------------- |
-| name_of_item         | string     | null: false       |
-| item_description     | text       | null: false       |
-| item_category        | text       | null: false       |
-| item_condition       | text       | null: false       |
-| who_expense          | text       | null: false       |
-| ship_from_prefecture | text       | null: false       |
-| days_to_shipment     | integer    | null: false       |
-| sales_price          | integer    | null: false       |
-| user                 | references | foreign_key: true |
+| Column                  | Type       | Options           |
+| ----------------------- | ---------- | ----------------- |
+| name_of_item            | string     | null: false       |
+| item_description        | text       | null: false       |
+| item_category_id        | integer    | null: false       |
+| item_condition_id       | integer    | null: false       |
+| who_expense_id          | integer    | null: false       |
+| ship_from_prefecture_id | integer    | null: false       |
+| days_to_shipment_id     | integer    | null: false       |
+| sales_price             | integer    | null: false       |
+| user_id                 | references | foreign_key: true |
 
 ### Association
 
