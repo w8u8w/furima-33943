@@ -2,46 +2,63 @@
 
 ## users テーブル
 
-| Column          | Type    | Options     |
-| --------------- | ------  | ----------- |
-| nickname        | string  | null: false |
-| email           | string  | null: false, unique: true |
-| encrypted_password | string  | null: false |
-| last_name_em    | string  | null: false |
-| first_name_em   | string  | null: false |
-| last_name_kana  | string  | null: false |
-| first_name_kana | string  | null: false |
-| birthday        | integer  | null: false |
+| Column             | Type    | Options                   |
+| ------------------ | ------  | ------------------------- |
+| nickname           | string  | null: false               |
+| email              | string  | null: false, unique: true |
+| encrypted_password | string  | null: false               |
+| last_name_em       | string  | null: false               |
+| first_name_em      | string  | null: false               |
+| last_name_kana     | string  | null: false               |
+| first_name_kana    | string  | null: false               |
+| birthday           | integer | null: false               |
 
 ### Association
 
 - has_many :items
-- has_many :purchases
+- has_many :purchases_records
 
-## purchases テーブル
+## purchases_records テーブル
 
-| Column                 | Type    | Options     |
-| ---------------------- | ------- | ----------- |
-| post_code              | string | null: false |
-| block_number           | string  | null: false |
-| building_name          | string  |
-| phone_number           | string | null: false |
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| user   | references | foreign_key: true |
+| item   | references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
+- belongs_to :shipping_address
+
+## shipping_addresses テーブル
+
+| Column                 | Type   | Options     |
+| ---------------------- | ------ | ----------- |
+| post_code              | string | null: false |
+| block_number           | string | null: false |
+| building_name          | string |             |
+| phone_number           | string | null: false |
+
+### Association
+
+- belongs_to :purchase_record
 
 ## items テーブル
 
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| name_of_item     | string     | null: false                    |
-| item_description | text       | null: false                    |
-| sales_price      | integer    | null: false                    |
-| user             | references | null: false, foreign_key: true |
+| Column               | Type       | Options           |
+| -------------------- | ---------- | ----------------- |
+| name_of_item         | string     | null: false       |
+| item_description     | text       | null: false       |
+| item_category        | text       | null: false       |
+| item_condition       | text       | null: false       |
+| who_expense          | text       | null: false       |
+| ship_from_prefecture | text       | null: false       |
+| days_to_shipment     | integer    | null: false       |
+| sales_price          | integer    | null: false       |
+| user                 | references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :purchase
+- has_one    :purchase_record
