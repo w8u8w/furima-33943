@@ -24,7 +24,7 @@
 | ---------------------- | ------- | ----------- |
 | post_code              | string | null: false |
 | block_number           | string  | null: false |
-| building_name          | string  | null: false |
+| building_name          | string  |
 | phone_number           | integer | null: false |
 
 ### Association
