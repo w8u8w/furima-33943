@@ -11,13 +11,13 @@ RSpec.describe User, type: :model do
         expect(@user).to be_valid
       end
       it 'パスワードは英数を用いて、６文字以上であれば登録できる' do
-        @user.password = "abc123"
-        @user.password_confirmation = "abc123"
+        @user.password = 'abc123'
+        @user.password_confirmation = 'abc123'
         expect(@user).to be_valid
       end
       it 'お名前カナ（全角）は、カタカナが存在すれば登録できる' do
-        @user.last_name_kana = "アイ"
-        @user.first_name_kana = "ウエオ"
+        @user.last_name_kana = 'アイ'
+        @user.first_name_kana = 'ウエオ'
         expect(@user).to be_valid
       end
     end
