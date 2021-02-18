@@ -68,7 +68,7 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include('Email is invalid')
       end
     end
-    
+
     context '新規登録の失敗（パスワード）' do
       it 'パスワードは５文字以下では登録できない' do
         @user.password = 'abc12'
@@ -93,7 +93,7 @@ RSpec.describe User, type: :model do
         @user.password_confirmation = 'hanako123'
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
-      end      
+      end
     end
   end
 end
