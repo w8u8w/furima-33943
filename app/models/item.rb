@@ -2,6 +2,11 @@ class Item < ApplicationRecord
   belongs_to  :user
   has_one     :purchases_record
   has_one_attached  :image
+  extend ActiveHash::Associations::ActiveRecordExtensions
+    belongs_to  :item_category
+    belongs_to  :item_condition
+    belongs_to  :who_expense
+    belongs_to  :prefecture
 
   with_options presence: true do
     validates :name_of_item
