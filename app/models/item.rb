@@ -11,7 +11,6 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name_of_item
     validates :item_description
-    validates :sales_price
     validates :image
   end
 
@@ -22,4 +21,7 @@ class Item < ApplicationRecord
     validates :prefecture_id
     validates :days_to_shipment_id
   end
+
+  validates :sales_price, numericality: {only_integer: true, greater_than: 299, less_than: 10000000},
+    format: with:　/\A[0-9]+\z/
 end
