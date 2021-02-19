@@ -11,12 +11,15 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name_of_item
     validates :item_description
+    validates :sales_price
+    validates :image
+  end
+
+  with_options numericality: { other_than: 1 } do
     validates :item_category_id
     validates :item_condition_id
     validates :who_expense_id
     validates :prefecture_id
     validates :days_to_shipment_id
-    validates :sales_price
-    validates :image
   end
 end
