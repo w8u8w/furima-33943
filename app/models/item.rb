@@ -7,6 +7,7 @@ class Item < ApplicationRecord
     belongs_to  :item_condition
     belongs_to  :who_expense
     belongs_to  :prefecture
+    belongs_to  :days_to_shipment
 
   with_options presence: true do
     validates :name_of_item
