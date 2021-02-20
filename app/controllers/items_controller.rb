@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :move_to_index, only: :edit
+  before_action :authenticate_user!, except: :index
+  # before_action :move_to_index, only: :edit
 
   def index
   end
@@ -25,12 +25,12 @@ class ItemsController < ApplicationController
                                  :prefecture_id, :days_to_shipment_id, :sales_price, :image).merge(user_id: current_user.id)
   end
 
-  def move_to_index
-    if user_signed_in?
-      current_user == @user
-      redirect_to action: :index
-    else
-      redirect_to action: :index
-    end
-  end
+  # def move_to_index
+  #   if user_signed_in?
+  #     current_user == @user
+  #     redirect_to action: :index
+  #   else
+  #     redirect_to action: :index
+  #   end
+  # end
 end
