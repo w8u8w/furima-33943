@@ -23,6 +23,6 @@ class Item < ApplicationRecord
     validates :days_to_shipment_id
   end
 
-  validates :sales_price, numericality: { only_integer: true, greater_than: 299, less_than: 10_000_000 },
-                          format: { with: /\A[0-9]+\z/ }
+  validates :sales_price, presense: true, 
+    numericality: { only_integer: true, greater_than: 299, less_than: 10_000_000 }, format: { with: /\A[0-9]+\z/ }
 end
