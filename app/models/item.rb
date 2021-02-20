@@ -3,11 +3,11 @@ class Item < ApplicationRecord
   has_one     :purchases_record
   has_one_attached  :image
   extend ActiveHash::Associations::ActiveRecordExtensions
-    belongs_to  :item_category
-    belongs_to  :item_condition
-    belongs_to  :who_expense
-    belongs_to  :prefecture
-    belongs_to  :days_to_shipment
+  belongs_to  :item_category
+  belongs_to  :item_condition
+  belongs_to  :who_expense
+  belongs_to  :prefecture
+  belongs_to  :days_to_shipment
 
   with_options presence: true do
     validates :name_of_item
@@ -23,6 +23,6 @@ class Item < ApplicationRecord
     validates :days_to_shipment_id
   end
 
-  validates :sales_price, numericality: {only_integer: true, greater_than: 299, less_than: 10000000},
-    format: { with: /\A[0-9]+\z/ }
+  validates :sales_price, numericality: { only_integer: true, greater_than: 299, less_than: 10_000_000 },
+                          format: { with: /\A[0-9]+\z/ }
 end

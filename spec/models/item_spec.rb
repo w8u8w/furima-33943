@@ -31,32 +31,32 @@ RSpec.describe Item, type: :model do
       it '商品の詳細（カテゴリー）がないと登録できない' do
         @item.item_category_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item category is not a number")
+        expect(@item.errors.full_messages).to include('Item category is not a number')
       end
       it '商品の詳細（商品の状態）がないと登録できない' do
         @item.item_condition_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item condition is not a number")
+        expect(@item.errors.full_messages).to include('Item condition is not a number')
       end
       it '配送について（配送料の負担）がないと登録できない' do
         @item.who_expense_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Who expense is not a number")
+        expect(@item.errors.full_messages).to include('Who expense is not a number')
       end
       it '配送について（発送元の地域）がないと登録できない' do
         @item.prefecture_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture is not a number")
+        expect(@item.errors.full_messages).to include('Prefecture is not a number')
       end
       it '配送について（発送までの日数）がないと登録できない' do
         @item.days_to_shipment_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Days to shipment is not a number")
+        expect(@item.errors.full_messages).to include('Days to shipment is not a number')
       end
       it '販売価格がないと登録できない' do
         @item.sales_price = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Sales price is not a number", "Sales price is invalid")
+        expect(@item.errors.full_messages).to include('Sales price is not a number', 'Sales price is invalid')
       end
     end
 
@@ -64,17 +64,17 @@ RSpec.describe Item, type: :model do
       it '販売価格が300円未満では登録できない' do
         @item.sales_price = '299'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Sales price must be greater than 299")
+        expect(@item.errors.full_messages).to include('Sales price must be greater than 299')
       end
       it '販売価格が10000000円以上では登録できない' do
         @item.sales_price = '10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Sales price must be less than 10000000")
+        expect(@item.errors.full_messages).to include('Sales price must be less than 10000000')
       end
       it '販売価格は半角数字でないと登録できない' do
         @item.sales_price = '３００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Sales price is not a number")
+        expect(@item.errors.full_messages).to include('Sales price is not a number')
       end
     end
   end
