@@ -1,6 +1,6 @@
 class PurchasesController < ApplicationController
 
-  def new
+  def index
     
   end
 
