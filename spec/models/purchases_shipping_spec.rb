@@ -40,6 +40,12 @@ RSpec.describe PurchasesShipping, type: :model do
         @purchases_shipping.valid?
         expect(@purchases_shipping.errors.full_messages).to include("Phone number can't be blank", "Phone number is invalid")
       end
+
+      it 'tokenがないと購入できない' do
+        @purchases_shipping.token = nil
+        @purchases_shipping.valid?
+        expect(@purchases_shipping.errors.full_messages).to include("Token can't be blank")
+      end
     end
 
     context '商品の購入失敗（ActiveHash）' do
