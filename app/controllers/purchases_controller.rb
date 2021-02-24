@@ -25,8 +25,7 @@ class PurchasesController < ApplicationController
   end
 
   def move_to_root_path
-    redirect_to root_path if current_user.id == @item.user_id
-    redirect_to root_path if @item.purchases_record != nil
+    redirect_to root_path if current_user.id == @item.user_id || @item.purchases_record != nil
   end
 
   def purchases_params
