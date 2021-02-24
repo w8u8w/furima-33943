@@ -27,6 +27,8 @@ const pay = () => {
     document.getElementById("card-exp-month").removeAttribute("name");
     document.getElementById("card-exp_year").removeAttribute("name");
     document.getElementById("card-cvc").removeAttribute("name");
+
+    document.getElementById("charge-form").submit();
     });
   })
 };
