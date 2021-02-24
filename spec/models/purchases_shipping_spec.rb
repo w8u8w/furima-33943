@@ -12,6 +12,11 @@ RSpec.describe PurchasesShipping, type: :model do
       it '入力必須項目の全てが存在すれば購入できる' do
         expect(@purchases_shipping).to be_valid
       end
+
+      it '建物名がなくても購入できる' do
+        @purchases_shipping.building_name = ''
+        expect(@purchases_shipping).to be_valid
+      end
     end
 
     context '商品の購入失敗(未入力)' do
