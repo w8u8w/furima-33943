@@ -18,12 +18,13 @@ RSpec.describe PurchasesShipping, type: :model do
       it '郵便番号がないと購入できない' do
         @purchases_shipping.post_code = ''
         @purchases_shipping.valid?
-        expect(@purchases_shipping.errors.full_messages).to include("Post code can't be blank", "Post code is invalid. Include hyphen(-)")
+        expect(@purchases_shipping.errors.full_messages).to include("Post code can't be blank",
+                                                                    'Post code is invalid. Include hyphen(-)')
       end
       it '都道府県を指定しないと購入できない' do
         @purchases_shipping.prefecture_id = nil
         @purchases_shipping.valid?
-        expect(@purchases_shipping.errors.full_messages).to include("Prefecture is not a number")
+        expect(@purchases_shipping.errors.full_messages).to include('Prefecture is not a number')
       end
       it '市区町村がないと購入できない' do
         @purchases_shipping.municipality = ''
@@ -38,7 +39,7 @@ RSpec.describe PurchasesShipping, type: :model do
       it '電話番号がないと購入できない' do
         @purchases_shipping.phone_number = ''
         @purchases_shipping.valid?
-        expect(@purchases_shipping.errors.full_messages).to include("Phone number can't be blank", "Phone number is invalid")
+        expect(@purchases_shipping.errors.full_messages).to include("Phone number can't be blank", 'Phone number is invalid')
       end
 
       it 'tokenがないと購入できない' do
@@ -52,7 +53,7 @@ RSpec.describe PurchasesShipping, type: :model do
       it '都道府県のidが 1 の場合購入できない' do
         @purchases_shipping.prefecture_id = 1
         @purchases_shipping.valid?
-        expect(@purchases_shipping.errors.full_messages).to include("Prefecture must be other than 1")
+        expect(@purchases_shipping.errors.full_messages).to include('Prefecture must be other than 1')
       end
     end
 
@@ -60,17 +61,17 @@ RSpec.describe PurchasesShipping, type: :model do
       it '郵便番号にハイフンがない場合購入できない' do
         @purchases_shipping.post_code = '1234567'
         @purchases_shipping.valid?
-        expect(@purchases_shipping.errors.full_messages).to include("Post code is invalid. Include hyphen(-)")
+        expect(@purchases_shipping.errors.full_messages).to include('Post code is invalid. Include hyphen(-)')
       end
       it '電話番号が12桁以上の場合購入できない' do
         @purchases_shipping.phone_number = '123456789012'
         @purchases_shipping.valid?
-        expect(@purchases_shipping.errors.full_messages).to include("Phone number is invalid")
+        expect(@purchases_shipping.errors.full_messages).to include('Phone number is invalid')
       end
       it '電話番号にハイフンが含まれると登録できない' do
         @purchases_shipping.phone_number = '123-4567-8901'
         @purchases_shipping.valid?
-        expect(@purchases_shipping.errors.full_messages).to include("Phone number is invalid")
+        expect(@purchases_shipping.errors.full_messages).to include('Phone number is invalid')
       end
     end
   end
