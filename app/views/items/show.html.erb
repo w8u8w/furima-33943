@@ -30,41 +30,39 @@
       <%= link_to "削除", item_path(@item.id), method: :delete, class:"item-destroy" %>
     <% end %>
     
-    <% if user_signed_in? && current_user.id != @item.user_id %>
-      <% if @item.purchases_record == nil %>
+    <% if (user_signed_in? && current_user.id != @item.user_id) && @item.purchases_record == nil%>
         <%= link_to "購入画面に進む", item_purchases_path(@item.id) ,class:"item-red-btn"%>
-      <% end %>
-      <div class="item-explain-box">
-        <span><%= @item.item_description %></span>
-      </div>
-      <table class="detail-table">
-        <tbody>
-          <tr>
-            <th class="detail-item">出品者</th>
-            <td class="detail-value"><%= @item.user.nickname %></td>
-          </tr>
-          <tr>
-            <th class="detail-item">カテゴリー</th>
-            <td class="detail-value"><%= @item.item_category.name %></td>
-          </tr>
-          <tr>
-            <th class="detail-item">商品の状態</th>
-            <td class="detail-value"><%= @item.item_condition.name %></td>
-          </tr>
-          <tr>
-            <th class="detail-item">配送料の負担</th>
-            <td class="detail-value"><%= @item.who_expense.name %></td>
-          </tr>
-          <tr>
-            <th class="detail-item">発送元の地域</th>
-            <td class="detail-value"><%= @item.prefecture.name %></td>
-          </tr>
-          <tr>
-            <th class="detail-item">発送日の目安</th>
-            <td class="detail-value"><%= @item.days_to_shipment.name %></td>
-          </tr>
-        </tbody>
-      <% end %>
+    <% end %>
+    <div class="item-explain-box">
+      <span><%= @item.item_description %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">出品者</th>
+          <td class="detail-value"><%= @item.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">カテゴリー</th>
+          <td class="detail-value"><%= @item.item_category.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">商品の状態</th>
+          <td class="detail-value"><%= @item.item_condition.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">配送料の負担</th>
+          <td class="detail-value"><%= @item.who_expense.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">発送元の地域</th>
+          <td class="detail-value"><%= @item.prefecture.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">発送日の目安</th>
+          <td class="detail-value"><%= @item.days_to_shipment.name %></td>
+        </tr>
+      </tbody>
     </table>
     <div class="option">
       <div class="favorite-btn">
