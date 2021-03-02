@@ -10,10 +10,16 @@ document.addEventListener('DOMContentLoaded', function(){
     // 表示する画像を生成
     const blobImage = document.createElement('img');
     blobImage.setAttribute('src', blob);
+    blobImage.setAttribute('id', 'target-image');
 
     // 生成したHTMLの要素をブラウザに表示させる
     imageElement.appendChild(blobImage);
     ImageList.appendChild(imageElement);
+
+    // 表示する画像のリサイズ
+    const targetImg = document.getElementById('target-image');
+    targetImg.width = 400;  // 横幅を400pxにリサイズ
+    targetImg.height = 250; // 縦幅を250pxにリサイズ
   });
 })
 
